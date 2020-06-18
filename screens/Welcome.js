@@ -46,17 +46,17 @@ export default class App extends React.Component {
   
             <ThemeProvider style={{marginTop:70}} theme={theme} >
               <Button
-                buttonStyle={{paddingHorizontal:70, marginTop:70, backgroundColor: '#ffaa23'}}
+                buttonStyle={{paddingHorizontal:70, marginTop:70, backgroundColor: '#000000'}}
                 style={{width:100}}
                 icon={
                   <Icon
                     name="arrow-right"
                     size={30}
-                    color="#2f3a2f"
+                    color="#ffffff"
                   />
                 }
                 iconRight
-                onPress={()=>{this.props.navigation.navigate('UserType', this.state.language)}}
+                onPress={()=>{this.props.navigation.navigate('UserType', {language: this.state.language})}}
               />
             </ThemeProvider>
   
@@ -69,13 +69,12 @@ export default class App extends React.Component {
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'center',
+      alignItems: 'center'
     },
   
     boxRadius: {
-      backgroundColor: '#ffaa23',
-      color: '#2f3a2f', 
-      borderWidth: 3, 
+      backgroundColor: '#ffffff',
+      borderWidth: 5, 
       borderColor: 'black', 
       borderStyle: 'solid', 
       borderRadius: 15,
