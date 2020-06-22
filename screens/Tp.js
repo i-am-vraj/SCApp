@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
 
+
 export default function Tp() {
   useEffect(() => {
     const backAction = () => {

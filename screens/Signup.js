@@ -128,7 +128,7 @@ export default class Signup extends React.Component {
                         />
                         }
                         iconRight
-                        onPress={()=>{this.props.navigation.navigate('WalkThrough')}}
+                        onPress={()=>{this.props.navigation.navigate('DrawerRender')}}
                     />
                 </ThemeProvider>
             </View>
