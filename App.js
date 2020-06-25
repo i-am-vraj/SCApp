@@ -11,9 +11,11 @@ import Signin from './screens/Signin';
 import Example from './screens/Example';
 import SigninOTPSocial from './screens/SigninOTPSocial';
 import Tp from './screens/Tp';
-// import WalkThrough from './screens/WalkThrough';
+import WalkThrough from './screens/WalkThrough';
 import VegCardView from './components/VegCardView';
 import DrawerRender from './components/DrawerRender';
+import ForgotPass from './screens/ForgotPass';
+import EnterOTP from './screens/EnterOTP';
 
 
 const Stack = createStackNavigator();
@@ -48,10 +50,10 @@ export default function MyStack() {
         name="Tp"
         component={Tp}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="WalkThrough"
         component={WalkThrough}
-      /> */}
+      />
       <Stack.Screen
         name="VegCardView"
         component={VegCardView}
@@ -63,6 +65,14 @@ export default function MyStack() {
       <Stack.Screen
         name="Example"
         component={Example}
+      />
+      <Stack.Screen
+        name="ForgotPass"
+        component={ForgotPass}
+      />
+      <Stack.Screen
+        name="EnterOTP"
+        component={EnterOTP}
       />
     </Stack.Navigator>
     </NavigationContainer>

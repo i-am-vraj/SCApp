@@ -2,39 +2,34 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input,ThemeProvider, Button } from 'react-native-elements';
+import { Input, Button } from 'react-native-elements';
 
 
 
 
 export default class SigninOTPSocial extends React.Component {
+
+    state = {
+        email: '',
+    };
+
     render() {
-
-        const theme = {
-            Button: {
-              raised: false,
-            },
-          }
-
         return(
 
             <View style={styles.container}>
 
                 <Text style={{fontSize: 40, fontWeight: 'bold', marginLeft: 30}}>Welcome!</Text>
                 
-                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <View style={{flexDirection: 'row'}}>
                     <Text style={{fontSize: 30, fontWeight: 'bold', marginLeft: 30, borderBottomColor: 'black', borderBottomWidth: 2}}>Login with OTP</Text>
-
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Signin')}>
-                        <Text style={{fontWeight: 'bold', fontSize: 15, marginRight: 30, marginVertical: 10}}>Account login</Text>
-                    </TouchableOpacity>
                 </View>
 
                 <View style={{marginHorizontal: 30, marginTop: 50}}>
                     
                     <Input
                         placeholderTextColor='#555'
-                        placeholder='Email Address/Phone Number'
+                        placeholder='Email Address'
+                        onChangeText={value => {this.setState({email: value})} }
                         leftIcon={
                             <Icon
                             name='envelope'
@@ -46,7 +41,7 @@ export default class SigninOTPSocial extends React.Component {
 
                 </View>
                 
-                <ThemeProvider theme={theme} >
+                <View>
                     <Button
                         title='Generate OTP    '
                         buttonStyle={{paddingHorizontal:70, marginTop:70, backgroundColor: '#000000', marginHorizontal:30}}
@@ -59,16 +54,16 @@ export default class SigninOTPSocial extends React.Component {
                         />
                         }
                         iconRight
-                        onPress={()=>{console.log('button clicked')}}
+                        onPress={()=>{this.props.navigation.navigate('EnterOTP', {email : this.state.email})}}
                     />
-                </ThemeProvider>
+                </View>
                 
                 <View style={{flexDirection: 'row', margin: 30}}>
-                    <Text style={{flex: 2, borderBottomWidth: 2, marginBottom: 10}}></Text>
+                    <Text style={{flex: 2, borderBottomWidth: 2, marginBottom: 5}}></Text>
                     <View style={{flex: 3, alignItems: 'center', justifyContent: 'flex-end'}}>
-                        <Text style={{fontSize: 20, fontWeight: 'bold'}}>Or Sign Up with</Text>
+                        <Text style={{fontWeight: 'bold'}}>Or Sign Up with</Text>
                     </View>
-                    <Text style={{flex: 2, borderBottomWidth: 2, marginBottom: 10}}></Text>
+                    <Text style={{flex: 2, borderBottomWidth: 2, marginBottom: 5}}></Text>
                 </View>
 
                 <View style={{flexDirection: 'row', margin: 30}}>

@@ -1,3 +1,6 @@
+//just example of drawer
+
+
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';

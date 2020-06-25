@@ -1,3 +1,5 @@
+//homepage-screen
+
 import React, {useState} from 'react'
 import {StyleSheet, Text, View, Image} from 'react-native';
 import { Card, Button, Header, Badge } from 'react-native-elements';
@@ -12,10 +14,10 @@ function Mybutton(props) {
         <Button
             icon={<Icon
                 name={props.name}
-                size={30}
+                size={20}
                 color='#000'/>}
-                title={'    '+props.name.toUpperCase()}
-                titleStyle={{color:'black'}}
+                title={props.name.toUpperCase()}
+                titleStyle={{color:'black', paddingLeft: 3}}
                 buttonStyle={{backgroundColor:'white'}}
         />
         </View>
@@ -93,7 +95,7 @@ export default function VegCardView(props)  {
                 backgroundColor='white'
                 leftComponent={{icon: 'menu', size: 30, color: '#000', onPress: ()=>props.navigation.toggleDrawer()}}
                 rightComponent={<Myicon/>}
-                centerComponent={{text:'TAAZA DUKAAN', style: {letterSpacing: 5, fontWeight: 'bold', fontSize: 23}}}
+                centerComponent={{text:'TAAZA DUKAAN', style: {letterSpacing: 5, fontWeight: 'bold'}}}
             />
             <Header
                 rightComponent={<Mybutton name='sort'/>}

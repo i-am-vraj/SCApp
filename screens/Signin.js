@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input,ThemeProvider, Button } from 'react-native-elements';
+import { Input, Button } from 'react-native-elements';
 
 
 
@@ -11,37 +11,26 @@ export default class Signin extends React.Component {
 
     state = {
         iconName1: 'eye',
-        pass1: true, 
+        pass1: true,
+        email: '',
+        password: '',
     };
 
     render() {
-        const theme = {
-            Button: {
-              raised: false,
-            },
-          }
         return(
             <View style={styles.container}>
-                <Text style={{fontSize: 40, fontWeight: 'bold', marginLeft: 30, marginBottom: 20}}>Welcome back!</Text>
-                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <Text style={{fontSize: 30, fontWeight: 'bold', marginLeft: 30, borderBottomColor: 'black', borderBottomWidth: 2}}>Login</Text>
-
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Signup')}>
-                        <Text style={{fontWeight: 'bold', fontSize: 15, marginLeft: 50, marginVertical: 10}}>Create Account</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('SigninOTPSocial')}>
-                        <Text style={{fontWeight: 'bold', fontSize: 15, marginRight: 30, marginVertical: 10}}>Login using OTP</Text>
-                    </TouchableOpacity>
-
+                <View>
+                    <Text style={{fontSize: 40, fontWeight: 'bold', marginLeft: 30}}>Welcome back!</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={{fontSize: 30, fontWeight: 'bold', marginLeft: 30, borderBottomColor: 'black', borderBottomWidth: 2}}>Login</Text>
+                    </View>
                 </View>
 
-                <View style={{marginHorizontal: 30, marginTop: 50}}>
-                    
-
+                <View style={{marginHorizontal: 30}}>
                     <Input
                         placeholderTextColor='#555'
                         placeholder='Email Address/Phone Number'
+                        onChangeText={value => {this.setState({email: value})} }
                         leftIcon={
                             <Icon
                             name='envelope'
@@ -55,6 +44,7 @@ export default class Signin extends React.Component {
                         placeholderTextColor='#555'
                         secureTextEntry={this.state.pass1}
                         placeholder='Password'
+                        onChangeText={value => {this.setState({password: value})} }
                         leftIcon={
                             <Icon
                             name='lock'
@@ -74,22 +64,40 @@ export default class Signin extends React.Component {
 
                 </View>
                 
-                <ThemeProvider theme={theme} >
+                <View>
                     <Button
                         title='Login    '
-                        buttonStyle={{paddingHorizontal:70, marginTop:70, backgroundColor: '#000000', marginHorizontal:30}}
+                        buttonStyle={{paddingHorizontal:70, backgroundColor: '#000', marginHorizontal:30}}
                         style={{width:100}}
                         icon={
                         <Icon
                             name="check-circle"
                             size={30}
-                            color="#ffffff"
+                            color="#fff"
                         />
                         }
                         iconRight
-                        onPress={()=>{console.log('button clicked')}}
+                        onPress={()=>{console.log(this.state.email + " " + this.state.password)}}
                     />
-                </ThemeProvider>
+
+                    <TouchableOpacity style={{marginHorizontal: 30, alignSelf: 'flex-end', marginTop: 30 }} onPress={()=>this.props.navigation.navigate('ForgotPass')}>
+                        <Text style={{fontWeight: 'bold', borderBottomWidth: 2, borderBottomColor: 'black'}}>Forgot Password?</Text>
+                    </TouchableOpacity>
+
+                </View>
+
+
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 30}}>
+                    
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Signup')}>
+                        <Text style={{fontWeight: 'bold', borderWidth: 2, borderColor: 'black', borderRadius: 5, fontSize: 20, paddingHorizontal: 10, paddingVertical: 5}}>Register</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('SigninOTPSocial')}>
+                        <Text style={{fontWeight: 'bold', borderWidth: 2, borderColor: 'black', borderRadius: 5, fontSize: 20, paddingHorizontal: 10, paddingVertical: 5}}>OTP Login</Text>
+                    </TouchableOpacity>
+
+                </View>
             </View>
         )
     }
@@ -99,9 +107,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      justifyContent: 'center',
+      justifyContent: 'space-evenly',
     //   backgroundColor: '#a3b721'
-    backgroundColor: '#fff'
     },
   });
   

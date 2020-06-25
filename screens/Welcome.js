@@ -16,7 +16,7 @@ export default class App extends React.Component {
       return (
           <View style={styles.container}>
             
-            <Image style={{marginTop:100, height:400, width:400}} source={require('../welcome.png')} />
+            <Image style={{marginLeft: 10, height:400, width:400}} source={require('../welcome.png')} />
             
             
             <Text style={{fontSize:25, textAlign: 'center'}}>Please select a language!</Text>
@@ -33,7 +33,7 @@ export default class App extends React.Component {
                   defaultValue={this.state.language}
                   containerStyle={{height: 40}}
                   style={{backgroundColor: '#fafafa'}}
-                  dropDownStyle={{backgroundColor: '#fafafa'}}
+                  dropDownStyle={{backgroundColor: '#fafafa', height: 80}}
                   onChangeItem={item => this.setState({
                       language: item.value
                   })}
@@ -43,7 +43,6 @@ export default class App extends React.Component {
             <View style={{marginHorizontal: 60}}>
               <Button
                 buttonStyle={{paddingHorizontal:70, backgroundColor: '#000'}}
-                style={{width:100}}
                 icon={
                   <Icon
                     name="arrow-right"
@@ -65,7 +64,7 @@ export default class App extends React.Component {
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      justifyContent: 'space-around'
+      justifyContent: 'space-evenly'
     },
   
     boxRadius: {
